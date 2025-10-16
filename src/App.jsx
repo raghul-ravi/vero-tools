@@ -4,7 +4,7 @@
 */
 import {useState} from 'react';
 import Sidebar from './components/Sidebar';
-import AskGemini from './components/AskGemini';
+import CreditAnalysis from './components/CreditAnalysis';
 import AppraisalAnalysis from './components/AppraisalAnalysis';
 import TitleValidation from './components/TitleValidation';
 import './App.css';
@@ -16,13 +16,13 @@ function App() {
   const renderFeature = () => {
     switch (activeFeature) {
       case 'ask-gemini':
-        return <AskGemini />;
+        return <CreditAnalysis />;
       case 'appraisal-analysis':
         return <AppraisalAnalysis />;
       case 'title-validation':
         return <TitleValidation />;
       default:
-        return <AskGemini />;
+        return <CreditAnalysis />;
     }
   };
 

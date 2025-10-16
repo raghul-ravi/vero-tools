@@ -4,9 +4,9 @@
 */
 import {useState, useRef} from 'react';
 import {validateCreditReport} from '../services/llmService.js';
-import './AskGemini.css';
+import './CreditAnalysis.css';
 
-function AskGemini() {
+function CreditAnalysis() {
   const [creditData, setCreditData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -441,4 +441,4 @@ function EmptyState({ message, icon = 'ℹ️', isPositive = false }) {
   );
 }
 
-export default AskGemini;
+export default CreditAnalysis;
