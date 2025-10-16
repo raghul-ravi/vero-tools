@@ -1,0 +1,16 @@
+/* TitleValidation shares most styles with AppraisalAnalysis */
+/* Additional specific styles can be added here if needed */
+
+/* All styles are inherited from AppraisalAnalysis.css */
+/* This includes:
+ * - .feature-description
+ * - .upload-area
+ * - .upload-btn
+ * - .action-buttons
+ * - .validate-btn (shared with .analyze-btn)
+ * - .clear-btn
+ * - .validation-container (shared with .analysis-container)
+ * - .validation-content (shared with .analysis-content)
+ */
+
+/* Custom validation-specific styles can be added below if needed in the future */
