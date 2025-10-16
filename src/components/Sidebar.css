@@ -1,7 +1,7 @@
 .sidebar {
   width: 240px;
-  background: var(--color-gray-50);
-  border-right: 1px solid var(--color-gray-300);
+  background: #0a0a0a;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -18,13 +18,13 @@
 
 .sidebar-header {
   padding: var(--spacing-lg);
-  border-bottom: 1px solid var(--color-gray-300);
-  background: var(--color-bg-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-sm);
-  min-height: 56px;
+  min-height: 72px;
 }
 
 .sidebar.collapsed .sidebar-header {
@@ -34,33 +34,33 @@
 
 .sidebar-header h2 {
   margin: 0;
-  font-size: 1.125rem;
-  color: var(--color-text-primary);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-size: 1.25rem;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   white-space: nowrap;
   transition: opacity var(--transition-base);
 }
 
 .collapse-btn {
   background: transparent;
-  border: 1px solid var(--color-gray-300);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-sm);
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all var(--transition-base);
   flex-shrink: 0;
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .collapse-btn:hover {
-  background: var(--color-gray-200);
-  border-color: var(--color-gray-400);
-  color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
 }
 
 .collapse-btn svg {
@@ -83,15 +83,15 @@
 .sidebar-item {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm) var(--spacing-md);
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
   background: transparent;
   border: none;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   cursor: pointer;
   transition: all var(--transition-fast);
-  color: var(--color-text-secondary);
-  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9375rem;
   text-align: left;
   width: 100%;
   font-weight: 500;
@@ -110,25 +110,26 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 2px;
+  width: 3px;
   height: 100%;
-  background: var(--color-primary);
+  background: #ffffff;
   opacity: 0;
   transition: opacity var(--transition-fast);
+  border-radius: 0 2px 2px 0;
 }
 
 .sidebar-item:hover {
-  background-color: var(--color-gray-200);
-  color: var(--color-text-primary);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
 }
 
 .sidebar.collapsed .sidebar-item:hover {
-  background-color: var(--color-gray-200);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 .sidebar-item.active {
-  background: var(--color-primary-100);
-  color: var(--color-primary-dark);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
   font-weight: 600;
 }
 

@@ -180,26 +180,121 @@
   margin-top: var(--spacing-2xl);
 }
 
-.analysis-container h2,
-.validation-container h2 {
-  color: var(--color-text-primary);
-  font-size: 1.125rem;
-  margin-bottom: var(--spacing-md);
-  font-weight: 600;
-  padding-bottom: var(--spacing-sm);
-  border-bottom: 1px solid var(--color-gray-300);
+/* Appraisal Sections */
+.appraisal-sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
 }
 
-.analysis-content,
-.validation-content {
+.appraisal-section {
   background: var(--color-bg-primary);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-lg);
-  min-height: 300px;
-  max-height: 600px;
-  overflow-y: auto;
-  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+  border: 1px solid var(--color-gray-200);
+  transition: all var(--transition-base);
   box-shadow: var(--shadow-sm);
+}
+
+.appraisal-section:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Risk Card */
+.risk-card {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.risk-card.severity-high {
+  border-left: 3px solid var(--color-error);
+}
+
+.risk-card.severity-medium {
+  border-left: 3px solid var(--color-warning);
+}
+
+.risk-card.severity-low {
+  border-left: 3px solid var(--color-info);
+}
+
+.risk-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.risk-card:last-child {
+  margin-bottom: 0;
+}
+
+.risk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.risk-header h4 {
+  font-size: 1rem;
+  color: #1a1a1a;
+  margin: 0;
+  font-weight: 600;
+}
+
+.risk-description {
+  color: var(--color-gray-600);
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Recommendations List */
+.recommendations-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.recommendation-item {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: #fafafa;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-gray-200);
+  transition: all var(--transition-base);
+}
+
+.recommendation-item:hover {
+  background: #f5f5f5;
+  transform: translateX(2px);
+}
+
+.rec-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.recommendation-item p {
+  margin: 0;
+  color: var(--color-gray-600);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  flex: 1;
 }
 
 .analysis-content p,

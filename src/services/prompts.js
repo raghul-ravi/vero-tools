@@ -92,17 +92,78 @@ Return ONLY valid JSON in this exact structure (no markdown, no code blocks, jus
 
 If certain information is not available in the document, use "Not available" or empty arrays. Be precise and thorough.`;
 
-export const APPRAISAL_ANALYSIS_PROMPT = `Please analyze this appraisal document and provide:
+export const APPRAISAL_ANALYSIS_PROMPT = `Analyze this appraisal document and extract the following information in JSON format.
 
-1. Property Details: Extract property address, type, square footage, lot size, year built
-2. Valuation: Summarize the appraised value and how it compares to market trends
-3. Comparables: List the comparable properties used and their key features
-4. Condition Assessment: Note the property condition and any repairs needed
-5. Risk Factors: Identify any red flags or concerns
-6. Market Analysis: Summarize local market conditions and trends
-7. Recommendations: Provide insights for the buyer/lender
+Return ONLY valid JSON in this exact structure (no markdown, no code blocks, just pure JSON):
 
-Please be thorough and highlight any important findings.`;
+{
+  "propertyDetails": {
+    "address": "Full property address",
+    "propertyType": "Single Family/Condo/Townhouse/etc",
+    "squareFootage": "X,XXX sq ft",
+    "lotSize": "X,XXX sq ft or X acres",
+    "yearBuilt": "YYYY",
+    "bedrooms": "Number",
+    "bathrooms": "Number",
+    "garageSpaces": "Number"
+  },
+  "valuation": {
+    "appraisedValue": "$XXX,XXX",
+    "appraisalDate": "MM/DD/YYYY",
+    "effectiveDate": "MM/DD/YYYY",
+    "purchasePrice": "$XXX,XXX (if available)",
+    "pricePerSqFt": "$XXX",
+    "marketTrend": "Increasing/Stable/Declining",
+    "daysOnMarket": "XX days"
+  },
+  "comparables": [
+    {
+      "address": "Property address",
+      "salePrice": "$XXX,XXX",
+      "saleDate": "MM/DD/YYYY",
+      "squareFootage": "X,XXX sq ft",
+      "bedrooms": "Number",
+      "bathrooms": "Number",
+      "pricePerSqFt": "$XXX",
+      "proximity": "X.X miles",
+      "adjustments": "$X,XXX"
+    }
+  ],
+  "conditionAssessment": {
+    "overallCondition": "Excellent/Good/Average/Fair/Poor",
+    "exteriorCondition": "Description",
+    "interiorCondition": "Description",
+    "roofCondition": "Description",
+    "foundationCondition": "Description",
+    "repairsNeeded": ["List of repairs needed"],
+    "estimatedRepairCost": "$X,XXX"
+  },
+  "riskAssessment": {
+    "overallRisk": "Low/Medium/High",
+    "riskFactors": [
+      {
+        "factor": "Risk factor name",
+        "severity": "Low/Medium/High",
+        "description": "Detailed description"
+      }
+    ]
+  },
+  "marketAnalysis": {
+    "marketConditions": "Strong/Moderate/Weak",
+    "supplyDemand": "Description",
+    "medianSalePrice": "$XXX,XXX",
+    "averageDaysOnMarket": "XX days",
+    "priceAppreciation": "X.X% annually",
+    "inventory": "XX months"
+  },
+  "recommendations": [
+    "Recommendation 1",
+    "Recommendation 2",
+    "Recommendation 3"
+  ]
+}
+
+If certain information is not available in the document, use "Not available" or empty arrays. Be precise and thorough.`;
 
 export const TITLE_VALIDATION_PROMPT = `Please review this title document and provide a comprehensive validation analysis:
 

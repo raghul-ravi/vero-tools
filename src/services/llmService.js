@@ -69,15 +69,25 @@ export async function validateCreditReport(file, fileDataUrl) {
  * Analyze an appraisal document
  * @param {File} file - The appraisal document file
  * @param {string} fileDataUrl - The base64 encoded file data
- * @returns {Promise<string>} - The analysis text
+ * @returns {Promise<Object>} - The parsed appraisal data
  */
 export async function analyzeAppraisal(file, fileDataUrl) {
   try {
-    const analysisText = await generateContent(APPRAISAL_ANALYSIS_PROMPT, file, fileDataUrl);
-    return analysisText;
+    let responseText = await generateContent(APPRAISAL_ANALYSIS_PROMPT, file, fileDataUrl);
+    responseText = responseText.trim();
+
+    // Remove markdown code blocks if present
+    if (responseText.startsWith('```json')) {
+      responseText = responseText.replace(/```json\n?/, '').replace(/\n?```$/, '');
+    } else if (responseText.startsWith('```')) {
+      responseText = responseText.replace(/```\n?/, '').replace(/\n?```$/, '');
+    }
+
+    const parsedData = JSON.parse(responseText);
+    return parsedData;
   } catch (error) {
     console.error('Error analyzing appraisal:', error);
-    throw new Error('Sorry, an error occurred while analyzing the appraisal document.');
+    throw new Error('Failed to analyze appraisal document. Please ensure the file is a valid appraisal and try again.');
   }
 }
 
